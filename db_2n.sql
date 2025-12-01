@@ -159,12 +159,34 @@ SELECT id FROM Pessoas WHERE cidade_nome LIKE 'Porto Alegre'
 
 -- 8 - Quais são os nomes das pessoas que nasceram entre os anos de 1990 e 1995?
 
-
+SELECT nome FROM Pessoas WHERE datanasc BETWEEN '1990-01-01' AND '1995-12-31'
 
 
 -- 9 - Quantos são nascidos entre 1980-1990?
 
-
+SELECT count(*) AS total_nascidos_1990_1995 FROM Pessoas WHERE datanasc BETWEEN '1990-01-01' AND '1995-12-31'
 
 
 -- 10 - Quantos nomes começam com as letras M?
+
+SELECT count(*) AS total_nomes_m FROM Pessoas WHERE nome LIKE 'M%'
+
+-- 11 - Lista de pessoas que moram na cidade de São Paulo
+
+SELECT nome FROM Pessoas WHERE cidade_nome LIKE 'São Paulo' 
+
+-- 12- Lista de pessoas que moram na cidade de Salvador e são do sexo masculino
+
+SELECT nome FROM Pessoas WHERE cidade_nome LIKE 'Salvador' AND genero LIKE 'Masculino'
+
+-- 13- Lista de pessoas que moram na cidade de Belo Horizonte, ordenadas por nome
+
+SELECT nome FROM Pessoas Where cidade_nome LIKE 'Belo Horizonte' ORDER BY nome ASC;
+
+-- 14- Lista de pessoas que possuem telefone informado
+
+SELECT * FROM Pessoas WHERE fone IS NOT NULL
+
+-- 15-Quantas pessoas do gênero feminino residem em Belo Horizonte?
+
+SELECT nome FROM Pessoas Where cidade_nome LIKE 'Belo Horizonte' AND genero LIKE 'Feminino'
